@@ -1,0 +1,191 @@
+metadata:
+  title: Žádost o informace - Navazující řízení
+  short title: 106 - Navazující
+  description: V případě odmítnutí žádosti o informace či jiného zádrhelu Vám poradíme co s tím.
+  authors:
+    - name: Michal Kuk
+      organization: Frank Bold Society
+  revision_date: 2020-11-05
+  pre: |
+   <p style="text-align:center;background:#FFCE67; padding:5px;"><strong>Zkušební verze</strong><br/>Pro účely testování</p>
+  post: |
+    Za podpory dotačního programu [Ministerstva spravedlnosti - Prevence korupčního jednání](https://www.justice.cz/web/msp/dotace-v-oblasti-trestni-politiky?clanek=prevence-korupcniho-jednani)
+---
+default screen parts:
+  under: |
+    [Odeslat zpětnou vazbu](https://da.frankbold.org/interview?i=docassemble.PravoNaInformace%3Afeedback.yml&fdb=True){:target="_blank"}
+---
+modules:
+  - .funkce
+  - .progressivedisclosure
+---
+include:
+ - forms.yml
+ - feedback.yml
+---
+features:
+  question help button: true
+  css: progressivedisclosure.css
+---
+objects:
+  - Podatel: Person.using(nazev="podatele")
+  - Adresat: Organization
+  - Podani: Thing
+  - Komentar: DAFileCollection
+---
+mandatory: True
+code: |
+  multi_user = True
+---
+question: |
+  Jakou situaci řešíte?
+fields:
+  - no label: situace
+    input type: radio
+    code: |
+      ziskejSituace().items()
+---
+sets: final_situace
+code: |
+  final_situace = obsahSituace(situace)
+---
+sets: final_duvod
+code: |
+  duvod_seznam = ziskejDuvody(situace)
+  if len(duvod_seznam) == 1:
+    final_duvod = obsahDuvodu(int(list(duvod_seznam.keys())[0]))
+  else:
+    final_duvod = obsahDuvodu(duvod)
+---
+question: |
+  Z jakého důvodu?
+fields:
+  - no label: duvod
+    input type: radio
+    code:
+      duvod_seznam.items()
+---
+question: |
+  ${ final_duvod['title'] }
+subquestion: |
+  ${ final_duvod['popis'] }
+  
+  % if len(ziskejArgumentyProti(final_duvod['ID']).values()) > 0:
+  ${ prog_disclose(casteDuvody) } 
+  % endif
+field: hodnoceni
+buttons:
+  - Důvod je neoprávněný: neopravnen
+  - Nevím: nevi
+---
+template: casteDuvody
+subject: |
+  Časté příklady neoprávněného odmítnutí:
+content: |
+  % for arg in ziskejArgumentyProti(final_duvod['ID']).values():
+  - ${ arg }
+  % endfor
+---
+sets: moznosti
+code: |
+  moznosti = {}
+  moznosti["svepomoc"] = "Přečtu si podklady a poradím si sám."
+  moznosti["poradna"] = "Zeptám se na poradně."
+  moznosti["advokati"] = "Obrátím se na advokaty."
+  if final_situace["name"] != "jine":
+    moznosti["generator"] = "Vytvořím si v rozhraní stížnost."
+---
+question: |
+  Jak chcete dále postupovat?
+fields:
+  - no label: postup
+    datatype: radio
+    code: |
+      moznosti.items()
+---
+need: hodnoceni
+question: |
+  Odpovídá Vaší situaci, některá z níže uvedených?
+fields:
+  - no label: argument
+    input type: radio
+    code:
+      ziskejArgumentyProti(final_duvod['ID']).items()
+action buttons:
+  - label: Žádný u uvedených
+    action: argumentJine
+    color: warning  
+css: |
+  <style>
+  input.labelauty + label > span.labelauty-unchecked-image, input.labelauty + label > span.labelauty-checked-image {
+  display:none;
+  }
+  
+  input.labelauty + label span {
+  line-height:1.2rem !important;
+  vertical-align:middle !important;
+  margin-left:0 !important;
+  }
+  
+  </style>
+---
+event: argumentJine
+code: |
+  feedback
+---
+sets: final_arg
+code: |
+  argumentySeznam = ziskejArgumentyProti(final_duvod['ID'])
+  if len(argumentySeznam.values()) == 1:
+    final_arg = obsahArgumentu(next(iter(argumentySeznam)))
+  else:
+    final_arg = obsahArgumentu(argument)
+---
+question: |
+  V čem je postup neoprávněný
+subquestion: |
+  ${ final_arg['titleMinus'] }
+  
+  ## Podrobný popis
+  ${ final_arg['popis'] }
+
+  % if final_arg['obligatorni'] == "O":
+  U tohoto důvodu je povinný orgán ze zákona povinnen odmítnout informaci poskytnout. Zákon tak nedává prostor, aby orgán v případě informaci o své vůli poskytl.
+  % elif final_arg['obligatorni'] == "F":
+  V této situaci není orgán povinnen informaci neposkytnout. Má pouze ze zákona tu možnost, nemusí ji však využít. Věc je tedy do určité míry ponechána na uvážení úřad. Doporučujeme tak úřadu odůvodnit, proč je poskytnutí informace důležité.
+  % endif
+  
+  ## Jak se bránit
+  % if final_situace['podání'] == "odvolání":
+  Můžete podat odvolání ve lhůtě 15 dní. Odvolání se podává k orgánu, který žádost odmítl. Buď vám sám plně vyhoví, nebo předá věc k rozhodnutí nadřízenému orgánu. Pokud jde o ústřední orgán, tak tomu kdo stojí v jeho čele.
+  % else:
+  Proti postupu můžete podat stížnost. Stížnost se podává k orgánu, který žádost odmítl. Buď vám sám plně vyhoví, nebo předá věc k rozhodnutí nadřízenému orgánu. Pokud jde o ústřední orgán, tak tomu kdo stojí v jeho čele. 
+  % endif
+continue button field: kSablone
+continue button label: Vygenerovat ${ final_situace['podání'] }
+---
+event: generator
+code: |
+  if kSablone:
+    webhook_data = requests.post('https://hook.integromat.com/i4hynmj854aw6flenh11k3sblsedlbv3', data=json.dumps(all_variables()),headers={'Content-Type': 'application/json'})
+    if final_situace["podání"] == "odvolání":
+      command("leave", url="https://da.frankbold.org/interview?i=docassemble.VzoryPravnichPodani:odvolaniSpravni.yml&idSesn=" + user_info().session +"&idFile=" + user_info().filename)
+    else:
+      command("leave", url="https://da.frankbold.org/interview?i=docassemble.VzoryPravnichPodani:stiznost.yml&idSesn=" + user_info().session +"&idFile=" + user_info().filename)
+---
+scan for variables: False
+mandatory: True
+code: |
+  situace
+  if final_situace["ID"] == 10000 or final_situace["ID"] == 30000 or final_situace["ID"] == 50000:
+    final_arg = {}
+    final_arg['titleMinus'] = final_situace["title"]
+    final_arg['popis'] = final_duvod["popis"]
+    final_arg['obligatorni'] = False
+  if final_situace["ID"] == 60000:
+    feedstav
+  else:
+    if hodnoceni == "nevi":
+      feedstav
+    else:
+      generator

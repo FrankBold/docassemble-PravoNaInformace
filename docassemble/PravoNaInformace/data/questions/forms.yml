@@ -1,0 +1,40 @@
+objects:
+  - Dotaz: Thing
+---
+question: |
+  Napiště nám do poradny
+subquestion: |
+  Váš případ bohužel naše aplikace nepokrývá. Napište nám a posoudíme jej přímo.
+fields:
+  - Jméno a příjmení: Dotaz.jmeno
+  - E-mail: Dotaz.email
+    datatype: email
+  - Popis případu: Dotaz.popis
+    input type: area
+  - Přílohy: Dotaz.prilohy
+    datatype: files
+    required: False
+continue button field: dotazOdeslan
+---
+question: |
+  Nezávazná poptávka
+subquestion: |
+  Napiště Frank Bold Advokáti s popisem vaší situace. Ozvou se vám zpět do dvou pracovních dnů s nabídkou služeb.
+fields:
+  - Jméno a příjmení: Dotaz.jmeno
+  - E-mail: Dotaz.email
+    datatype: email
+  - Telefon: Dotaz.tel
+    datatype: integer
+  - Popis případu: Dotaz.popis
+    input type: area
+  - Přílohy: Dotaz.prilohy
+    datatype: files
+    required: False
+css: |
+  <style>
+    .bg-dark {
+      background-color: #C2B07C !important;
+    }
+  </style>
+continue button field: poptavkaFBA

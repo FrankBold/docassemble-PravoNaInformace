@@ -1,0 +1,300 @@
+{
+   "Důvody":[
+      {
+         "v":1,
+         "ID":10001,
+         "name":"jine",
+         "popis":"Pokud povinný subjekt usoudí, že je potřeba, abyste žádost doplnili nebo upřesnili, musí vás k tomu vyzvat do 7 dní ode dne přijetí žádosti. Pokud by byl toho názoru, že se žádost nevztahuje k jeho působnosti, je povinen vám to sdělit do 7 dní. Nejde-li o žádnou z těchto situací, musí povinný subjekt v souladu s § 14 odst. 5 písm. d) informačního zákona informaci poskytnout nebo rozhodnout o odmítnutí žádosti do 15 dní. Pokud povinný subjekt do 15 dní od přijetí žádosti neodpoví, jedná se o nečinnost.\n\nŽádost je vyřízena včas, pokud povinný subjekt alespoň v poslední den lhůty předá požadované informace k doručení žadateli. To znamená, že lhůta může být zachována, i pokud je 15. den po podání žádosti a odpověď jste dosud neobdrželi. Záleží samozřejmě na tom, jakým způsobem vám je odpověď na žádost doručována (volba tohoto způsobu je na vás). Případné zdržení může nastat u doručování poštou. Pokud vám orgán odpovídá datovou zprávou, okamžik předání informace k doručení a jejího doručení by měl být totožný.",
+         "title":"Jiné",
+         "parent":10000
+      },
+      {
+         "v":1,
+         "ID":20100,
+         "name":"nazory",
+         "popis":"Povinnost poskytovat informace se netýká dotazů na názory, budoucí rozhodnutí a vytváření nových informací. Povinný subjekt tedy není povinen čistě pro účely žádosti o informace vytvářet nová stanoviska, sdělovat jaké kroky v konkrétní věci učiní či co bude obsahem rozhodnutí, které vydá. Není také povinen dovysvětlovat svá stanoviska či rozhodnutí.",
+         "title":"Názory, budoucí rozhodnutí a nové informace",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":20200,
+         "name":"utajene",
+         "popis":null,
+         "title":"Utajované informace",
+         "parent":20000
+      },
+      {
+         "v":1,
+         "ID":20300,
+         "name":"osobnost",
+         "popis":"Povinný subjekt smí poskytnout informace, které se týkající osobnosti, projevů osobní povahy, soukromí fyzické osoby a osobní údaje pouze, pokud je jejich poskytnutí v souladu s občanským zákoníkem a nařízením GDPR. V této souvislosti dochází ke střetu dvou ústavně chráněných práv - práva na informace s právem na ochranu osobnosti. Tato práva je vždy potřeba pečlivě vážit a dle okolností konkrétní případu rozhodnout, kterému dát v daném případě přednost.",
+         "title":"Informace týkající se osobnosti",
+         "parent":20000
+      },
+      {
+         "v":1,
+         "ID":20400,
+         "name":"obchTajemstvi",
+         "popis":"Povinný subjekt nesmí poskytnout informace, které mají povahu obchodního tajemství. Obchodní tajemství tvoří skutečnosti, které jsou současně:\n\n* konkurenčně významné (zajišťují jejich vlastníku lepší postavení na trhu),\n* určitelné (musí být možné je jasně vymezit, nejedná se např. o pouhé znalosti či dovednost zaměstnanců)\n* ocenitelné (jejich hodnotu lze ocenit penězi)\n* nejsou běžně dostupné v příslušných obchodních kruzích\n* souvisí s obchodním závodem\n* jejich vlastník zajišťuje jejich utajení ",
+         "title":"Obchodní tajemství",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":20500,
+         "name":"majetkovePomery",
+         "popis":"informace o majetkových poměrech osoby, která není povinným subjektem, získané na základě zákonů o daních, poplatcích, penzijním nebo zdravotním pojištění nebo sociálním zabezpečení",
+         "title":"Informace o majetkových poměrech třetích osob",
+         "parent":20000
+      },
+      {
+         "v":1,
+         "ID":20600,
+         "name":"externiInfo",
+         "popis":"Povinný subjekt nesmí poskytnout informace od třetích osob, které vznikly bez použití veřejných prostředků. Podmínkou je, že třetí osoba neměla ze zákona povinnost informace předat. Tyto informace poskytnout lze, pokud s jejich poskytnutím třetí osoba souhlasí. Souhlas nemusí být sán výslovně, ale může také vyplývat z relevantní právní úpravy, ze které plyne veřejný zájem na dalším zpřístupňování předané informace.",
+         "title":"Informace od třetích osob",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":20700,
+         "name":"verejne",
+         "popis":"Povinný subjekt nesmí poskytnout informace, které mají povahu obchodního tajemství. Obchodní tajemství tvoří skutečnosti, které jsou současně:\n\n\n* konkurenčně významné (zajišťují jejich vlastníkovi lepší postavení na trhu),\n* určitelné (musí být možné je jasně vymezit, nejedná se např. o pouhé znalosti či dovednost zaměstnanců)\n* ocenitelné (jejich hodnotu lze ocenit penězi)\n* nejsou běžně dostupné v příslušných obchodních kruzích\n* souvisí s obchodním závodem\n* jejich vlastník zajišťuje jejich utajení ",
+         "title":"Zveřejňované informace",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":20800,
+         "name":"autorskaPrava",
+         "popis":"Povinný subjekt nesmí poskytnout informace, jejichž poskytnutím by byla porušena ochrana práv třetích osob k předmětu autorského práva. Předmětem autorského práva je autorské dílo ve smyslu autorského zákona:\n\n* jde o dílo umělecké (př. literární, hudební, divadelní, architektonické...) nebo vědecké,\n* dílo je jedinečným výsledkem tvůrčí činnosti autora a\n* je vyjádřeno v objektivně vnímatelné podobě (př. na papíře, hudebním nosiči, prostřednictvím zvukových vln apod.)",
+         "title":"Autorské právo třetích osob",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":20900,
+         "name":"finSystem",
+         "popis":"informace týkající se stability finančního systému",
+         "title":"Stabilita finančního systému",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":21000,
+         "name":"dozor",
+         "popis":"informace, které povinný subjekt získal od třetí osoby při plnění úkolů v rámci kontrolní, dozorové, dohledové nebo obdobné činnosti prováděné na základě zvláštního právního předpisu",
+         "title":"Dozor či kontrolní činnost",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":21100,
+         "name":"trest",
+         "popis":null,
+         "title":"probíhajícím trestním řízení",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":21200,
+         "name":"trestOrgany",
+         "popis":"informaci o činnosti orgánů činných v trestním řízení, týkající se trestního řízení, pokud by její poskytnutí ohrozilo či zmařilo účel trestního řízení, zejména zajištění práva na spravedlivý proces",
+         "title":"Činnosti trestních orgánů",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":21300,
+         "name":"soudy",
+         "popis":"informace o rozhodovací činnosti soudů s výjimkou rozsudků",
+         "title":"Rozhodovací činnost soudů",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":21400,
+         "name":"zpravodajství",
+         "popis":"informace o plnění úkolů zpravodajských služeb nebo o činnosti zpravodajských služeb",
+         "title":"Zpravodajské služby",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":21500,
+         "name":"nku",
+         "popis":"informace o přípravě, průběhu a projednávání výsledků kontrol v orgánech Nejvyššího kontrolního úřadu",
+         "title":"Kontroly NKÚ",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":21600,
+         "name":"fau",
+         "popis":"informace o činnosti Finančního analytického úřadu podle zákona o některých opatřeních proti legalizaci výnosů z trestné činnosti a financování terorismu nebo podle zákona o provádění mezinárodních sankcí",
+         "title":"Finančně analytický úřad",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":21700,
+         "name":"cnb",
+         "popis":"činnosti České národní banky v souvislosti s vedením centrální evidence účtů",
+         "title":"Činnost České národní banky",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":21800,
+         "name":"autorTv",
+         "popis":"informace, které jsou předmětem ochrany práva autorského, pokud jsou v držení provozovatelů rozhlasového nebo televizního vysílání, kteří toto vysílání provozují na základě zvláštních právních předpis",
+         "title":"Autorská ochrana u televize a rozhlasu",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":21900,
+         "name":"trestniPrevence",
+         "popis":"informace o činnosti orgánů činných v trestním řízení nebo bezpečnostních sborů, která se týká předcházení, vyhledávání, odhalování nebo stíhání trestné činnosti nebo ochrany bezpečnosti osob, majetku a veřejného pořádku",
+         "title":"Preventivní opatření v trestní oblasti",
+         "parent":20000
+      },
+      {
+         "v":1,
+         "ID":22000,
+         "name":"subjektStatUSC",
+         "popis":"Pokud adresát není povinným subjektem ve smyslu informačního zákona nemusí požadovanou informaci poskytnout. Povinným subjektem jsou\n\n* státní orgány\n* územní samosprávné celky a jejich orgány a \n* veřejné instituce - to, zda se jedná o instituci veřejnou nebo soukromou vyplývá z převahy znaků (způsob vzniku a zániku, osobou zřizovatele stát nebo soukromý subjekt, orgány instituce zřizuje stát či soukromý subjekt, (ne)existuje státní dohled nad činností instituce, veřejný nebo soukromý účel). ",
+         "title":"Adresát (úřad) není povinný subjekt",
+         "parent":20000
+      },
+      {
+         "v":1,
+         "ID":22800,
+         "name":"subjektVerejnaInstituce",
+         "popis":"Pokud adresát není povinným subjektem ve smyslu informačního zákona nemusí požadovanou informaci poskytnout. Povinným subjektem jsou\n\n* státní orgány\n* územní samosprávné celky a jejich orgány a \n* veřejné instituce - to, zda se jedná o instituci veřejnou nebo soukromou vyplývá z převahy znaků (způsob vzniku a zániku, osobou zřizovatele stát nebo soukromý subjekt, orgány instituce zřizuje stát či soukromý subjekt, (ne)existuje státní dohled nad činností instituce, veřejný nebo soukromý účel). ",
+         "title":"Adresát (ostatní) není povinný subjekt",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":22900,
+         "name":"subjektPusobnost",
+         "popis":"Povinné subjekty jsou povinny poskytovat pouze informace, které se vztahují k jejich působnosti. Působností se rozumí okruh záležitostí, které povinný orgán ze zákona může a musí řešit. ",
+         "title":"Informace není v působnosti povinného orgánu",
+         "parent":20000
+      },
+      {
+         "v":1,
+         "ID":22100,
+         "name":"vnitrniPokyny",
+         "popis":"Povinný subjekt nemusí poskytnout informace, které se vztahují výlučně k jeho vnitřním pokynům a personálním předpisům. Pokyny či předpisy musí mít výlučně vnitřní charakter, tj.:\n\n* 1. nejsou právními normami;\n* 2. nemají dopad na osoby stojící vně povinného subjektu\n* 3. pro posouzení internosti je rozhodující obsah pokynu či předpisu (ne jeho označení).\nPro neposkytnutí těchto informací musí navíc existovat legitimní důvod.",
+         "title":"Vnitřní pokyny a personální předpisy",
+         "parent":20000
+      },
+      {
+         "v":1,
+         "ID":22200,
+         "name":"infoPredRozhodnutim",
+         "popis":"Povinný subjekt nemusí poskytnout novou informaci, která vznikla při přípravě jeho rozhodnutí. Z tohoto pravidla může zákon stanovit výjimky. Jakmile je příprava informace ukončena rozhodnutím, tento důvod pro odmítnutí nelze aplikovat. Pro neposkytnutí této informace musí existovat legitimní důvod. ",
+         "title":"Nová informace před vydáním rozhodnutí",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":22300,
+         "name":"nato_eu",
+         "popis":"informace poskytnuté NATO nebo EU, která je v zájmu bezpečnosti státu, veřejné bezpečnosti nebo ochrany práv třetích osob",
+         "title":"Informace poskytnuté NATO nebo EU",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":22400,
+         "name":"bezpecnost",
+         "popis":"Informace, jejíž poskytnutí významně nebo přímo ohrožuje účinnost bezpečnostního opatření stanoveného na základě zvláštního předpisu pro účel ochrany bezpečnosti osob, majetku a veřejného pořádku",
+         "title":"Ohrožení účinnosti bezpečnostních opatření",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":22500,
+         "name":"zahranici",
+         "popis":"Informace, jejíž poskytnutí významně nebo přímo ohrožuje účinnost bezpečnostního opatření stanoveného na základě zvláštního předpisu pro účel ochrany bezpečnosti osob, majetku a veřejného pořádku",
+         "title":"Výkon zahraniční služby",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":22600,
+         "name":"opakovani",
+         "popis":"Pokud již byla dotyčná informace žadateli poskytnuta, byť i po lhůtě k vyřízení původní žádosti, lze novou žádost v zákonné lhůtě z tohoto důvodu zamítnout.",
+         "title":"Opakovana žádost",
+         "parent":20000
+      },
+      {
+         "v":2,
+         "ID":22700,
+         "name":"zneuziti",
+         "popis":null,
+         "title":"Zneužití práva na informace",
+         "parent":20000
+      },
+      {
+         "v":1,
+         "ID":30100,
+         "name":"jine",
+         "popis":"Povinný subjekt je povinen se zabývat celou vaší žádostí. Není přípustné, aby odpověděl pouze na část žádosti a zbytek nechal bez odpovědi. Pokud je povinný subjekt toho názoru, že část informací poskytnout lze a část ne, musí ve vztahu k těm informacím, které poskytnout nehodlá, vydat rozhdonutí o odmítnutí žádosti.\n",
+         "title":"Jiné",
+         "parent":30000
+      },
+      {
+         "v":1,
+         "ID":40100,
+         "name":"jine",
+         "popis":"Povinný subjekt může požadovat přiměřeně vysoké náklady spojené s pořízením kopií, opatřením technických nosičů dat a s odesláním informací žadateli. Dále může požadovat přiměřeně vysoké náklady za mimořádně rozsáhlé vyhledávání informací. Požadovaná výše nákladů musí být uvedena v oznámení o výši úhrady, které musí výši nákladů přesvědčivě odůvodnit, vč. odkazu na sazebník úhrad, který musí každý povinný subjekt vést. Úhradu nákladů za poskytnutí informace lze požadovat pouze před poskytnutím informace.",
+         "title":"Jiné",
+         "parent":40000
+      },
+      {
+         "v":1,
+         "ID":40200,
+         "name":"kopie",
+         "popis":"Povinný subjekt může požadovat náhradu za náklady spojené s pořízením kopií, na kterých budou informace poskytnuty. Požadovaná výše nákladů musí být uvedena v oznámení o výši úhrady a musí být dostatečně odůvodněna. V oznámení musí být uvedeno, na základě jakých skutečností a jakým způsobem byla výše úhrady vyčíslena. Způsob vyčíslení se odůvodňuje odkazem na sazebník úhrad, který musí každý povinný subjekt vést.",
+         "title":"Pořízení kopií",
+         "parent":40000
+      },
+      {
+         "v":1,
+         "ID":40300,
+         "name":"nosice",
+         "popis":"Povinný subjekt může požadovat úhradu za opatření technických nosičůl dat (CD, DVD), ne kterých bude informace předána. Požadovaná výše nákladů musí být uvedena v oznámení o výši úhrady a musí být dostatečně odůvodněna. V oznámení musí být uvedeno, na základě jakých skutečností a jakým způsobem byla výše úhrady vyčíslena. Způsob vyčíslení se odůvodňuje odkazem na sazebník úhrad, který musí každý povinný subjekt vést.",
+         "title":"Opatření technických nosičů dat",
+         "parent":40000
+      },
+      {
+         "v":1,
+         "ID":40400,
+         "name":"odeslani",
+         "popis":"Povinný subjekt může požadovat úhradu za náklady souvisejících s odesláním informace. Požadovaná výše nákladů musí být uvedena v oznámení o výši úhrady a musí být dostatečně odůvodněna. V oznámení musí být uvedeno, na základě jakých skutečností a jakým způsobem byla výše úhrady vyčíslena. Způsob vyčíslení se odůvodňuje odkazem na sazebník úhrad, který musí každý povinný subjekt vést.",
+         "title":"Odeslání informací",
+         "parent":40000
+      },
+      {
+         "v":1,
+         "ID":40500,
+         "name":"rozsah",
+         "popis":"Povinný subjekt může požadovat náhradu za mimořádně rozsáhlé vyhledávání, pokud shromáždění informací bude pro daný povinný subjekt představovat v jeho konkrétních podmínkách časově náročnou činnost, která se objektivně vzato vymyká běžnému poskytování informací tímto subjektem. Oznámení povinného subjektu o povinnosti úhrady musí obsahovat odůvodnění mimořádnosti a odkaz na sazebník.",
+         "title":"Mimořádné rozsáhlé vyhledávání",
+         "parent":40000
+      },
+      {
+         "v":1,
+         "ID":50001,
+         "name":null,
+         "popis":"Pokud žádost o poskytnutí informace směřuje k poskytnutí zveřejněné informace, může vám povinný subjekt místo poskytnutí samotné informace sdělit údaje, na základě kterých budete moci již zveřejněnou informaci vyhledat a získat. Jedná se zejména o odkaz na internetovou stránku, kde se informace nachází. V takovém případě máte právo po povinném orgánu požadovat, aby vám i tak samotnou informaci zaslal. Toto právo nemáte, pokud jste žádost podali elektronicky a požadovaná informace je zveřejněna na internetu. Špatným vyřízením žádosti je, když vás povinný orgán odkaže na informaci, kterou ale nelze na základě jím poskytnutých informací získat.",
+         "title":"Jiné",
+         "parent":50000
+      }
+   ]
+}

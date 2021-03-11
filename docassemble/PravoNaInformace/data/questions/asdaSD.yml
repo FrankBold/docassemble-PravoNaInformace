@@ -1,0 +1,20 @@
+template: seznam
+content: |
+  asdfasdfasdfasdfasdf
+  
+  * asdfsdf
+  * asdfsadf
+  * asdfasfasdf
+---
+mandatory: True
+sets: list
+code: |
+  list = "Pokud adresát není povinným subjektem ve smyslu informačního zákona nemusí požadovanou informaci poskytnout. Povinným subjektem jsou\r\n* státní orgány\r\n* územní samosprávné celky a jejich orgány a \r\n* veřejné instituce - to, zda se jedná o instituci veřejnou nebo soukromou vyplývá z převahy znaků (způsob vzniku a zániku, osobou zřizovatele stát nebo soukromý subjekt, orgány instituce zřizuje stát či soukromý subjekt, (ne)existuje státní dohled nad činností instituce, veřejný nebo soukromý účel)."
+  list2 = seznam.content
+---
+mandatory: True
+question: Test
+subquestion: |
+  ${ list }
+  
+  ${ list2 }

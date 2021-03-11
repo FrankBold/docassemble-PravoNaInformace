@@ -1,0 +1,12 @@
+mandatory: True
+code: |
+  pojmy = [
+  {'phrases': ['působnost','působnosti'], 'definition': 'Oblast v rámci které, úřad vykonává svoji činnost'},
+  {'phrases': ['pravomoc','pravomoci'], 'definition': 'Nástoje, které má orgán k dispozici. Pro obec definice [zde](https://frankbold.org)'}
+  ]
+  update_terms(pojmy, auto = True)
+---
+mandatory: True
+question: Otázka
+subquestion: |
+  Zde si povíme něco o působnosti a pravomoci, nebo tedy taky pravomoc...

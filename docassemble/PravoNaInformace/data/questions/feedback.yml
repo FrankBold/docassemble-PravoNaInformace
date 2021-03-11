@@ -1,0 +1,37 @@
+mandatory: True
+code: |
+  if 'fdb' in url_args:
+    odeslatFeedback
+---
+question: |
+  Poslat zpětnou vazbu
+subquestion: |
+  Prosím popište problém, chybu či nedostatek na který jste narazili. Pokud jste nenašli obsah odpovídající vaší situací, prosím popiště nám ji.
+fields:
+  - no label: feedback
+    input type: area
+  - E-mail: feedemail
+    datatype: email
+    required: False
+continue button label: Odeslat
+---
+sets: feedstav
+event: odeslatFeedback
+code: |
+  feedstav = send_email(to="michal.kuk@frankbold.org", template=t_feedback)
+  undefine('feedback')
+  podekovani
+---
+template: t_feedback
+subject: |
+  Feedback průvodce 106
+content: |
+  Od: ${ feedemail }
+  
+  Text: ${ feedback }
+---    
+event: podekovani
+question: |
+  Děkujeme
+subquestion: |
+  Zpětná vazba nám pomůže nástroj vylepšit.

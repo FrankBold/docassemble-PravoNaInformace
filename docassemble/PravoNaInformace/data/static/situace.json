@@ -1,0 +1,46 @@
+{
+   "Situace":[
+      {
+         "ID":10000,
+         "name":"necinnost",
+         "petit":"Úřad ani po marném uplynutí lhůty stanovené dle § 14 odst. 5 písm. d) InfZ, výše uvedenou informaci neposkytl a ani nevydal rozhodnutí o odmítnutí výše uvedené žádosti. Úřad rovněž neučinil vůči podateli žádný jiný úkon předpokládaný InfZ.  Podatel žádá adresáta o zjednání nápravy či předání stížnost nadřízenému orgánu.",
+         "title":"Orgán nijak nereagoval",
+         "podání":"stížnost"
+      },
+      {
+         "ID":20000,
+         "name":"odmitnuti",
+         "petit":"Vzhledem k výše uvedenému jsme toho názoru, že předmětné rozhodnutí je nezákonné, a navrhujeme, aby nadřízený orgán podle ustanovení § 16 odst. 4 zákona č. 106/1999 Sb, zákona o svobodném přístupu k informacím, napadené rozhodnutí zrušil a přikázal povinnému subjektu informaci poskytnout.",
+         "title":"Žádost či její část byla odmítnuta",
+         "podání":"odvolání"
+      },
+      {
+         "ID":30000,
+         "name":"neuplne",
+         "petit":"Úřad ve lhůtě dle § 14 odst. 5 písm. d) InfZ, výše uvedenou informaci částečně poskytl, avšak o zbytku žádosti nevydal rozhodnutí o odmítnutí.\nZ uvedeného důvodu podává stěžovatel dle § 16a odst. 1 písm. c) InfZ stížnost na postup adresáta při vyřizování žádosti o informace. Požaduji po adresátovi zjednání nápravy, či předání stížnost nadřízenému orgánu k rozhodnutí.\n",
+         "title":"Nebyly poskytnuty všechny požadované informace",
+         "podání":"stížnost"
+      },
+      {
+         "ID":40000,
+         "name":"uhrada",
+         "petit":"Podatel nesouhlasí s výší úhrady dle § 17 odst. 3 InfZ ve výši {{ Rozhodnuti.castka }},- Kč, která mu byla sdělena adresátem v souvislosti s poskytováním informace.\nOdůvodnění:\n{{ Podani.oduvodneni }}\nZ výše uvedeného důvodu podává podatel dle § 16a odst. 1 písm. d) InfZ stížnost na postup Úřadu při vyřizování žádosti o informace a žádá nadřízený orgán adresáta, aby dle § 16a odst. 7 písm. b) výši požadované částky snížil.",
+         "title":"Byl jsem vyzván k zaplacení nákladů",
+         "podání":"stížnost"
+      },
+      {
+         "ID":50000,
+         "name":"zpusobVyrizeni",
+         "petit":"Žadatel nesouhlasí se způsobem vyřízení žádosti dle § 6 InfZ. \nOdůvodnění:\n{{ Podani.oduvodneni }}\nZ výše uvedeného důvodu podává podatel dle § 16a odst. 1 písm. a) InfZ stížnost na postup Úřadu při vyřizování žádosti o informace a žádá adresáta o zjednání nápravy, či předání stížnosti nadřízenému orgánu k vyřízení",
+         "title":"Žádost byla vyřízena, ale špatně",
+         "podání":"stížnost"
+      },
+      {
+         "ID":60000,
+         "name":"jine",
+         "petit":null,
+         "title":"Jiné",
+         "podání":null
+      }
+   ]
+}
