@@ -2,7 +2,7 @@
    "Důvody":[
       {
          "v":1,
-         "ID":10001,
+         "ID":10099,
          "name":"jine",
          "popis":"Pokud povinný subjekt usoudí, že je potřeba, abyste žádost doplnili nebo upřesnili, musí vás k tomu vyzvat do 7 dní ode dne přijetí žádosti. Pokud by byl toho názoru, že se žádost nevztahuje k jeho působnosti, je povinen vám to sdělit do 7 dní. Nejde-li o žádnou z těchto situací, musí povinný subjekt v souladu s § 14 odst. 5 písm. d) informačního zákona informaci poskytnout nebo rozhodnout o odmítnutí žádosti do 15 dní. Pokud povinný subjekt do 15 dní od přijetí žádosti neodpoví, jedná se o nečinnost.\n\nŽádost je vyřízena včas, pokud povinný subjekt alespoň v poslední den lhůty předá požadované informace k doručení žadateli. To znamená, že lhůta může být zachována, i pokud je 15. den po podání žádosti a odpověď jste dosud neobdrželi. Záleží samozřejmě na tom, jakým způsobem vám je odpověď na žádost doručována (volba tohoto způsobu je na vás). Případné zdržení může nastat u doručování poštou. Pokud vám orgán odpovídá datovou zprávou, okamžik předání informace k doručení a jejího doručení by měl být totožný.",
          "title":"Jiné",
@@ -154,7 +154,7 @@
       },
       {
          "v":2,
-         "ID":21900,
+         "ID":22800,
          "name":"trestniPrevence",
          "popis":"informace o činnosti orgánů činných v trestním řízení nebo bezpečnostních sborů, která se týká předcházení, vyhledávání, odhalování nebo stíhání trestné činnosti nebo ochrany bezpečnosti osob, majetku a veřejného pořádku",
          "title":"Preventivní opatření v trestní oblasti",
@@ -165,15 +165,15 @@
          "ID":22000,
          "name":"subjektStatUSC",
          "popis":"Pokud adresát není povinným subjektem ve smyslu informačního zákona nemusí požadovanou informaci poskytnout. Povinným subjektem jsou\n\n* státní orgány\n* územní samosprávné celky a jejich orgány a \n* veřejné instituce - to, zda se jedná o instituci veřejnou nebo soukromou vyplývá z převahy znaků (způsob vzniku a zániku, osobou zřizovatele stát nebo soukromý subjekt, orgány instituce zřizuje stát či soukromý subjekt, (ne)existuje státní dohled nad činností instituce, veřejný nebo soukromý účel). ",
-         "title":"Adresát (úřad) není povinný subjekt",
+         "title":"Adresát (státní orgán) není povinný subjekt",
          "parent":20000
       },
       {
          "v":1,
-         "ID":22800,
+         "ID":21900,
          "name":"subjektVerejnaInstituce",
          "popis":"Pokud adresát není povinným subjektem ve smyslu informačního zákona nemusí požadovanou informaci poskytnout. Povinným subjektem jsou\n\n* státní orgány\n* územní samosprávné celky a jejich orgány a \n* veřejné instituce - to, zda se jedná o instituci veřejnou nebo soukromou vyplývá z převahy znaků (způsob vzniku a zániku, osobou zřizovatele stát nebo soukromý subjekt, orgány instituce zřizuje stát či soukromý subjekt, (ne)existuje státní dohled nad činností instituce, veřejný nebo soukromý účel). ",
-         "title":"Adresát (ostatní) není povinný subjekt",
+         "title":"Adresát (veřejná instituce) není povinný subjekt",
          "parent":20000
       },
       {
@@ -242,15 +242,15 @@
       },
       {
          "v":1,
-         "ID":30100,
+         "ID":30990,
          "name":"jine",
-         "popis":"Povinný subjekt je povinen se zabývat celou vaší žádostí. Není přípustné, aby odpověděl pouze na část žádosti a zbytek nechal bez odpovědi. Pokud je povinný subjekt toho názoru, že část informací poskytnout lze a část ne, musí ve vztahu k těm informacím, které poskytnout nehodlá, vydat rozhdonutí o odmítnutí žádosti.\n",
+         "popis":"Povinný subjekt je povinen se zabývat celou vaší žádostí. Není přípustné, aby odpověděl pouze na část žádosti a zbytek nechal bez odpovědi. Pokud je povinný subjekt toho názoru, že část informací poskytnout lze a část ne, musí ve vztahu k těm informacím, které poskytnout nehodlá, vydat rozhodnutí o odmítnutí žádosti.\n",
          "title":"Jiné",
          "parent":30000
       },
       {
          "v":1,
-         "ID":40100,
+         "ID":40990,
          "name":"jine",
          "popis":"Povinný subjekt může požadovat přiměřeně vysoké náklady spojené s pořízením kopií, opatřením technických nosičů dat a s odesláním informací žadateli. Dále může požadovat přiměřeně vysoké náklady za mimořádně rozsáhlé vyhledávání informací. Požadovaná výše nákladů musí být uvedena v oznámení o výši úhrady, které musí výši nákladů přesvědčivě odůvodnit, vč. odkazu na sazebník úhrad, který musí každý povinný subjekt vést. Úhradu nákladů za poskytnutí informace lze požadovat pouze před poskytnutím informace.",
          "title":"Jiné",
@@ -260,7 +260,7 @@
          "v":1,
          "ID":40200,
          "name":"kopie",
-         "popis":"Povinný subjekt může požadovat náhradu za náklady spojené s pořízením kopií, na kterých budou informace poskytnuty. Požadovaná výše nákladů musí být uvedena v oznámení o výši úhrady a musí být dostatečně odůvodněna. V oznámení musí být uvedeno, na základě jakých skutečností a jakým způsobem byla výše úhrady vyčíslena. Způsob vyčíslení se odůvodňuje odkazem na sazebník úhrad, který musí každý povinný subjekt vést.",
+         "popis":"Povinný subjekt může požadovat náhradu za náklady spojené s pořízením kopií, na kterých budou informace poskytnuty. Požadovaná výše nákladů musí být uvedena v oznámení o výši úhrady a musí být dostatečně odůvodněna. V oznámení musí být uvedeno, na základě, jakých skutečností a jakým způsobem byla výše úhrady vyčíslena. Způsob vyčíslení se odůvodňuje odkazem na sazebník úhrad, který musí každý povinný subjekt vést.",
          "title":"Pořízení kopií",
          "parent":40000
       },
@@ -268,7 +268,7 @@
          "v":1,
          "ID":40300,
          "name":"nosice",
-         "popis":"Povinný subjekt může požadovat úhradu za opatření technických nosičůl dat (CD, DVD), ne kterých bude informace předána. Požadovaná výše nákladů musí být uvedena v oznámení o výši úhrady a musí být dostatečně odůvodněna. V oznámení musí být uvedeno, na základě jakých skutečností a jakým způsobem byla výše úhrady vyčíslena. Způsob vyčíslení se odůvodňuje odkazem na sazebník úhrad, který musí každý povinný subjekt vést.",
+         "popis":"Povinný subjekt může požadovat úhradu za opatření technických nosičů dat (CD, DVD), ne kterých bude informace předána. Požadovaná výše nákladů musí být uvedena v oznámení o výši úhrady a musí být dostatečně odůvodněna. V oznámení musí být uvedeno, na základě, jakých skutečností a jakým způsobem byla výše úhrady vyčíslena. Způsob vyčíslení se odůvodňuje odkazem na sazebník úhrad, který musí každý povinný subjekt vést.",
          "title":"Opatření technických nosičů dat",
          "parent":40000
       },
@@ -276,7 +276,7 @@
          "v":1,
          "ID":40400,
          "name":"odeslani",
-         "popis":"Povinný subjekt může požadovat úhradu za náklady souvisejících s odesláním informace. Požadovaná výše nákladů musí být uvedena v oznámení o výši úhrady a musí být dostatečně odůvodněna. V oznámení musí být uvedeno, na základě jakých skutečností a jakým způsobem byla výše úhrady vyčíslena. Způsob vyčíslení se odůvodňuje odkazem na sazebník úhrad, který musí každý povinný subjekt vést.",
+         "popis":"Povinný subjekt může požadovat úhradu za náklady souvisejících s odesláním informace. Požadovaná výše nákladů musí být uvedena v oznámení o výši úhrady a musí být dostatečně odůvodněna. V oznámení musí být uvedeno, na základě, jakých skutečností a jakým způsobem byla výše úhrady vyčíslena. Způsob vyčíslení se odůvodňuje odkazem na sazebník úhrad, který musí každý povinný subjekt vést.",
          "title":"Odeslání informací",
          "parent":40000
       },
@@ -290,9 +290,9 @@
       },
       {
          "v":1,
-         "ID":50001,
+         "ID":50099,
          "name":null,
-         "popis":"Pokud žádost o poskytnutí informace směřuje k poskytnutí zveřejněné informace, může vám povinný subjekt místo poskytnutí samotné informace sdělit údaje, na základě kterých budete moci již zveřejněnou informaci vyhledat a získat. Jedná se zejména o odkaz na internetovou stránku, kde se informace nachází. V takovém případě máte právo po povinném orgánu požadovat, aby vám i tak samotnou informaci zaslal. Toto právo nemáte, pokud jste žádost podali elektronicky a požadovaná informace je zveřejněna na internetu. Špatným vyřízením žádosti je, když vás povinný orgán odkaže na informaci, kterou ale nelze na základě jím poskytnutých informací získat.",
+         "popis":"Pokud žádost o poskytnutí informace směřuje k poskytnutí zveřejněné informace, může vám povinný subjekt místo poskytnutí samotné informace sdělit údaje, na základě, kterých budete moci již zveřejněnou informaci vyhledat a získat. Jedná se zejména o odkaz na internetovou stránku, kde se informace nachází. V takovém případě máte právo po povinném orgánu požadovat, aby vám i tak samotnou informaci zaslal. Toto právo nemáte, pokud jste žádost podali elektronicky a požadovaná informace je zveřejněna na internetu. Špatným vyřízením žádosti je, když vás povinný orgán odkáže na informaci, kterou ale nelze na základě jím poskytnutých informací získat.",
          "title":"Jiné",
          "parent":50000
       }

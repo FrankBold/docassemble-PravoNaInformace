@@ -7,16 +7,20 @@ metadata:
       organization: Frank Bold Society
   revision_date: 2020-11-05
 ---
+default screen parts:
+  post: |
+    [Odeslat zpětnou vazbu](${ url_of('root') }interview?i=docassemble.PravoNaInformace%3Afeedback.yml){:target="_blank"}
+---
 modules:
   - .funkce
   - .progressivedisclosure
 ---
-include:
- - forms.yml
----
 features:
   question help button: true
   css: progressivedisclosure.css
+#  javascript:
+#    - beacon1.js
+#    - beacon2.js
 ---
 objects:
   - Podatel: Person.using(nazev="podatele")
@@ -24,9 +28,18 @@ objects:
   - Podani: Thing
   - Komentar: DAFileCollection
 ---
+scan for variables: False
 mandatory: True
 code: |
   multi_user = True
+  situace
+  if final_situace["ID"] == 10000 or final_situace["ID"] == 30000 or final_situace["ID"] == 50000:
+    final_arg = {}
+    final_arg['titleMinus'] = final_situace["title"]
+  if final_situace["ID"] == 60000:
+    nevadi
+  else:
+    generator
 ---
 question: |
   Jakou situaci řešíte?
@@ -35,6 +48,10 @@ fields:
     input type: radio
     code: |
       ziskejSituace().items()
+help: |
+  *Výtažek z manuálu [Kompletní průvodce právem na informace](https://frankbold.org/poradna/pravo-na-informace/pravo-na-informace/zakladni-informace/rada/kompletni-pruvodce-pravem-na-informace)*
+
+  ${castClanku(277, "Na jaké informace máte právo")}
 ---
 sets: final_situace
 code: |
@@ -55,9 +72,17 @@ fields:
     input type: radio
     code:
       duvod_seznam.items()
+action buttons:
+  - label: Žádný u uvedených
+    action: argumentJine
+    color: warning
 ---
 question: |
+  % if final_duvod['title'] == "Jiné":
+  ${ final_situace['title'] }
+  % else:
   ${ final_duvod['title'] }
+  % endif
 subquestion: |
   ${ final_duvod['popis'] }
   
@@ -66,9 +91,8 @@ subquestion: |
   % endif
 field: hodnoceni
 buttons:
-  - Důvod je oprávněný: opravnen
-  - Neoprávněné: neopravnen
-  - Nevím: nevi
+  - Považuji postup za neoprávněný: neopravnen
+  - Nejsem si jistý: nevi
 ---
 template: casteDuvody
 subject: |
@@ -95,9 +119,17 @@ fields:
     code: |
       moznosti.items()
 ---
-need: hodnoceni
 question: |
-  Odpovídá Vaší situaci, některá z níže uvedených?
+  % if final_duvod['title'] == "Jiné":
+  ## ${ final_situace['title'] }
+  % else:
+  ## ${ final_duvod['title'] }
+  % endif
+subquestion: |
+  ${ final_duvod['popis'] }
+  
+  ### Odpovídá Vaší situaci, některá z níže uvedených?
+  Připravili jsme argumentaci pro nejčastěji se opakující neoprávněné postupy. Pokud níže svoji situaci nenajdete, nevadí. Odůvodnění můžete doplnit dle svého.
 fields:
   - no label: argument
     input type: radio
@@ -113,59 +145,116 @@ css: |
   display:none;
   }
   
+  input.labelauty + label {
+  line-height:1.2rem;
+  font-size: 14px
+  }
+  
   input.labelauty + label span {
-  line-height:1.2rem !important;
-  vertical-align:middle !important;
+  line-height:1.5rem !important;
+  font-size: 15px;
   margin-left:0 !important;
   }
   
   </style>
 ---
+scan for variable: False
 event: argumentJine
-code: |
-  kSablone = True
+question: | 
+  Bohužel nemáme specifický obsah.
+subquestion: |
+  % if final_situace['name'] == 'odmitnuti':
+  ### Jak se bránit proti odmítnutí žádosti?
+  
+  ${castClanku(277, "Jak se bránit proti odmítnutí žádosti")}
+  % elif final_situace['name'] == 'uhrada':
+  ### Musíte za poskytnutou informaci zaplatit?
+  
+  ${castClanku(277, "Musíte za poskytnutou informaci zaplatit")}
+  % else:
+  ### Jak se bránit, pokud povinný subjekt ve lhůtě neodpoví nebo informace poskytne jen částečně?
+  
+  ${castClanku(277, "Jak se bránit, pokud povinný subjekt ve lhůtě neodpoví nebo informace poskytne jen částečně")}
+  % endif
+continue button field: kSablone
+continue button label: |
+  <i class="fas fa-file-alt"></i> Vygenerovat ${ final_situace['podání'] }
+under: |
+  ${ individual }
 ---
 sets: final_arg
 code: |
   final_arg = obsahArgumentu(argument)
 ---
 question: |
-  V čem je postup neoprávněný
+  Shrnutí situace
 subquestion: |
-  ${ final_arg['titleMinus'] }
+  ${ final_duvod['popis'] }
   
-  ## Podrobný popis
+  % if 'popis' in final_arg:
+  
+  > ${ final_arg['titleMinus'] }
+  
+  ### Právní rozbor  
+  
   ${ final_arg['popis'] }
 
-  % if final_arg['obligatorni'] == "O":
-  U tohoto důvodu je povinný orgán ze zákona povinnen odmítnout informaci poskytnout. Zákon tak nedává prostor, aby orgán v případě informaci o své vůli poskytl.
-  % elif final_arg['obligatorni'] == "F":
-  V této situaci není orgán povinnen informaci neposkytnout. Má pouze ze zákona tu možnost, nemusí ji však využít. Věc je tedy do určité míry ponechána na uvážení úřad. Doporučujeme tak úřadu odůvodnit, proč je poskytnutí informace důležité.
+  % if final_arg['obligatorni'] == "F":
+  Pokud požadovaná informace spadá pod tento důvod, orgán vám pouze *může* informaci neposkytnout. Je tak do značné míry na jeho uvážení zda vám ji poskytne či nikoli. Může tak u úřadu argumentovat i tím, proč je důležité a ve veřejném zájmu informaci poskytnout.
   % endif
-  
-  ## Jak se bránit
+  % endif
+  ### Jak se bránit
   % if final_situace['podání'] == "odvolání":
   Můžete podat odvolání ve lhůtě 15 dní. Odvolání se podává k orgánu, který žádost odmítl. Buď vám sám plně vyhoví, nebo předá věc k rozhodnutí nadřízenému orgánu. Pokud jde o ústřední orgán, tak tomu kdo stojí v jeho čele.
   % else:
-  Proti postupu můžete podat stížnost. Stížnost se podává k orgánu, který žádost odmítl. Buď vám sám plně vyhoví, nebo předá věc k rozhodnutí nadřízenému orgánu. Pokud jde o ústřední orgán, tak tomu kdo stojí v jeho čele. 
+  Proti postupu můžete podat stížnost. Stížnost se podává k orgánu, který vyřizuje žádost o informace. Buď vám sám plně vyhoví, nebo předá věc k rozhodnutí nadřízenému orgánu. Pokud jde o ústřední orgán, tak tomu kdo stojí v jeho čele. 
   % endif
 continue button field: kSablone
-continue button label: Vygenerovat ${ final_situace['podání'] }
+continue button label: |
+  <i class="fas fa-file-alt"></i> Vygenerovat ${ final_situace['podání'] }
+help:
+  label: |
+    <i class="fas fa-info"></i> Popis postupu
+  content: |
+    *Výtažek z manuálu [Kompletní průvodce právem na informace](https://frankbold.org/poradna/pravo-na-informace/pravo-na-informace/zakladni-informace/rada/kompletni-pruvodce-pravem-na-informace)*
+
+    % if final_situace['name'] == 'odmitnuti':
+    ### Jak se bránit proti odmítnutí žádosti?
+    
+    ${castClanku(277, "Jak se bránit proti odmítnutí žádosti")}
+    % elif final_situace['name'] == 'uhrada':
+    ### Musíte za poskytnutou informaci zaplatit?
+    
+    ${castClanku(277, "Musíte za poskytnutou informaci zaplatit")}
+    % else:
+    ### Jak se bránit, pokud povinný subjekt ve lhůtě neodpoví nebo informace poskytne jen částečně?
+    
+    ${castClanku(277, "Jak se bránit, pokud povinný subjekt ve lhůtě neodpoví nebo informace poskytne jen částečně")}
+    % endif
+under: |
+    ${ individual }
+---
+event: nevadi
+question: |
+  Bohužel pro Vás nemáme obsah na míru.
+subquestion: |
+  Nasměrovat vás mohou obecné informace v našem [kompletním průvodci právem na infomace](https://frankbold.org/poradna/pravo-na-informace/pravo-na-informace/zakladni-informace/rada/kompletni-pruvodce-pravem-na-informace)
+under: |
+    ${ individual }
 ---
 event: generator
 code: |
   if kSablone:
+    webhook_data = requests.post('https://hook.integromat.com/i4hynmj854aw6flenh11k3sblsedlbv3', data=json.dumps(all_variables()),headers={'Content-Type': 'application/json'})
     if final_situace["podání"] == "odvolání":
-      command("leave", url="https://da-test.frankbold.org/interview?i=docassemble.VzoryPravnichPodani:odvolaniSpravni.yml&idSesn=" + user_info().session +"&idFile=" + user_info().filename)
+      command("leave", url="https://da-test.frankbold.org/interview?i=docassemble.VzoryPravnichPodani:odvolaniSpravni.yml&typ=info&idSesn=" + user_info().session +"&idFile=" + user_info().filename)
     else:
-      command("leave", url="https://da-test.frankbold.org/interview?i=docassemble.VzoryPravnichPodani:stiznost.yml&idSesn=" + user_info().session +"&idFile=" + user_info().filename)
+      command("leave", url="https://da-test.frankbold.org/interview?i=docassemble.VzoryPravnichPodani:stiznost.yml&typ=info&idSesn=" + user_info().session +"&idFile=" + user_info().filename)
 ---
-mandatory: True
-code: |
-  hodnoceni
-  if postup == "poradna":
-    dotazOdeslan
-  elif postup == "advokati":
-    poptavkaFBA
-  else:
-    generator
+template: individual
+content: |
+  *****
+  ** Potřebujete individuální pomoc?**
+    
+  ${ action_button_html("https://da.frankbold.org/start/dotaz", label="Obrátit se na poradnu — *ve veřejném zájmu bezplatně*", color="secondary", size="sm", icon="life-ring") }
+  ${ action_button_html("https://www.fbadvokati.cz/cs/kontakt", label="Obrátit se na advokáty — *placené služby*", color="warning", size="sm", icon="balance-scale") }
