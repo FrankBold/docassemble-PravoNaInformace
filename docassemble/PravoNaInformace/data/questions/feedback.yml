@@ -1,7 +1,6 @@
 mandatory: True
 code: |
-  if 'fdb' in url_args:
-    odeslatFeedback
+  odeslatFeedback
 ---
 question: |
   Poslat zpětnou vazbu
@@ -18,7 +17,7 @@ continue button label: Odeslat
 sets: feedstav
 event: odeslatFeedback
 code: |
-  feedstav = send_email(to="michal.kuk@frankbold.org", template=t_feedback)
+  feedstav = send_email(to="servis@frankbold.org", template=t_feedback)
   undefine('feedback')
   podekovani
 ---
