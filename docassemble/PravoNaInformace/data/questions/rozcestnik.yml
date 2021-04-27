@@ -18,6 +18,8 @@ modules:
 features:
   question help button: true
   css: progressivedisclosure.css
+  question back button: True
+  navigation back button: False
 #  javascript:
 #    - beacon1.js
 #    - beacon2.js
