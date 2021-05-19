@@ -87,9 +87,9 @@ question: |
   % endif
 subquestion: |
   ${ final_duvod['popis'] }
-  
+
   % if len(ziskejArgumentyProti(final_duvod['ID']).values()) > 0:
-  ${ prog_disclose(casteDuvody) } 
+  ${ prog_disclose(casteDuvody) }
   % endif
 field: hodnoceni
 buttons:
@@ -129,7 +129,7 @@ question: |
   % endif
 subquestion: |
   ${ final_duvod['popis'] }
-  
+
   ### Odpovídá Vaší situaci, některá z níže uvedených?
   Připravili jsme argumentaci pro nejčastěji se opakující neoprávněné postupy. Pokud níže svoji situaci nenajdete, nevadí. Odůvodnění můžete doplnit dle svého.
 fields:
@@ -140,42 +140,42 @@ fields:
 action buttons:
   - label: Žádný u uvedených
     action: argumentJine
-    color: warning  
+    color: warning
 css: |
   <style>
   input.labelauty + label > span.labelauty-unchecked-image, input.labelauty + label > span.labelauty-checked-image {
   display:none;
   }
-  
+
   input.labelauty + label {
   line-height:1.2rem;
   font-size: 14px
   }
-  
+
   input.labelauty + label span {
   line-height:1.5rem !important;
   font-size: 15px;
   margin-left:0 !important;
   }
-  
+
   </style>
 ---
 scan for variable: False
 event: argumentJine
-question: | 
+question: |
   Bohužel nemáme specifický obsah.
 subquestion: |
   % if final_situace['name'] == 'odmitnuti':
   ### Jak se bránit proti odmítnutí žádosti?
-  
+
   ${castClanku(277, "Jak se bránit proti odmítnutí žádosti")}
   % elif final_situace['name'] == 'uhrada':
   ### Musíte za poskytnutou informaci zaplatit?
-  
+
   ${castClanku(277, "Musíte za poskytnutou informaci zaplatit")}
   % else:
   ### Jak se bránit, pokud povinný subjekt ve lhůtě neodpoví nebo informace poskytne jen částečně?
-  
+
   ${castClanku(277, "Jak se bránit, pokud povinný subjekt ve lhůtě neodpoví nebo informace poskytne jen částečně")}
   % endif
 continue button field: kSablone
@@ -192,13 +192,13 @@ question: |
   Shrnutí situace
 subquestion: |
   ${ final_duvod['popis'] }
-  
+
   % if 'popis' in final_arg:
-  
+
   > ${ final_arg['titleMinus'] }
-  
-  ### Právní rozbor  
-  
+
+  ### Právní rozbor
+
   ${ final_arg['popis'] }
 
   % if final_arg['obligatorni'] == "F":
@@ -209,7 +209,7 @@ subquestion: |
   % if final_situace['podání'] == "odvolání":
   Můžete podat odvolání ve lhůtě 15 dní. Odvolání se podává k orgánu, který žádost odmítl. Buď vám sám plně vyhoví, nebo předá věc k rozhodnutí nadřízenému orgánu. Pokud jde o ústřední orgán, tak tomu kdo stojí v jeho čele.
   % else:
-  Proti postupu můžete podat stížnost. Stížnost se podává k orgánu, který vyřizuje žádost o informace. Buď vám sám plně vyhoví, nebo předá věc k rozhodnutí nadřízenému orgánu. Pokud jde o ústřední orgán, tak tomu kdo stojí v jeho čele. 
+  Proti postupu můžete podat stížnost. Stížnost se podává k orgánu, který vyřizuje žádost o informace. Buď vám sám plně vyhoví, nebo předá věc k rozhodnutí nadřízenému orgánu. Pokud jde o ústřední orgán, tak tomu kdo stojí v jeho čele.
   % endif
 continue button field: kSablone
 continue button label: |
@@ -222,15 +222,15 @@ help:
 
     % if final_situace['name'] == 'odmitnuti':
     ### Jak se bránit proti odmítnutí žádosti?
-    
+
     ${castClanku(277, "Jak se bránit proti odmítnutí žádosti")}
     % elif final_situace['name'] == 'uhrada':
     ### Musíte za poskytnutou informaci zaplatit?
-    
+
     ${castClanku(277, "Musíte za poskytnutou informaci zaplatit")}
     % else:
     ### Jak se bránit, pokud povinný subjekt ve lhůtě neodpoví nebo informace poskytne jen částečně?
-    
+
     ${castClanku(277, "Jak se bránit, pokud povinný subjekt ve lhůtě neodpoví nebo informace poskytne jen částečně")}
     % endif
 under: |
@@ -249,14 +249,14 @@ code: |
   if kSablone:
     webhook_data = requests.post('https://hook.integromat.com/i4hynmj854aw6flenh11k3sblsedlbv3', data=json.dumps(all_variables()),headers={'Content-Type': 'application/json'})
     if final_situace["podání"] == "odvolání":
-      command("leave", url=url_of('root', _external=True)+"https://da-test.frankbold.org/interview?i=docassemble.VzoryPravnichPodani:odvolaniSpravni.yml&typ=info&idSesn=" + user_info().session +"&idFile=" + user_info().filename)
+      command("leave", url=url_of('root', _external=True)+"https://da-test.frankbold.org/interview?i=docassemble.VzoryPravnichPodani:odvolaniSpravni.yml&typ=info&idSesn=" + user_info().session +"&idFile=" + user_info().filename+"&typRizeni=info")
     else:
-      command("leave", url=url_of('root', _external=True)+"interview?i=docassemble.VzoryPravnichPodani:stiznost.yml&typ=info&idSesn=" + user_info().session +"&idFile=" + user_info().filename)
+      command("leave", url=url_of('root', _external=True)+"interview?i=docassemble.VzoryPravnichPodani:stiznost.yml&typ=info&idSesn=" + user_info().session +"&idFile=" + user_info().filename+"&typRizeni=info")
 ---
 template: individual
 content: |
   *****
   ** Potřebujete individuální pomoc?**
-    
+
   ${ action_button_html("https://da.frankbold.org/start/dotaz", label="Obrátit se na poradnu — *ve veřejném zájmu bezplatně*", color="secondary", size="sm", icon="life-ring") }
   ${ action_button_html("https://www.fbadvokati.cz/cs/kontakt", label="Obrátit se na advokáty — *placené služby*", color="warning", size="sm", icon="balance-scale") }
