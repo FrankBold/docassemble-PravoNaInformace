@@ -249,7 +249,7 @@ code: |
   if kSablone:
     webhook_data = requests.post('https://hook.integromat.com/i4hynmj854aw6flenh11k3sblsedlbv3', data=json.dumps(all_variables()),headers={'Content-Type': 'application/json'})
     if final_situace["podání"] == "odvolání":
-      command("leave", url=url_of('root', _external=True)+"https://da-test.frankbold.org/interview?i=docassemble.VzoryPravnichPodani:odvolaniSpravni.yml&typ=info&idSesn=" + user_info().session +"&idFile=" + user_info().filename+"&typRizeni=info")
+      command("leave", url=url_of('root', _external=True)+"interview?i=docassemble.VzoryPravnichPodani:odvolaniSpravni.yml&typ=info&idSesn=" + user_info().session +"&idFile=" + user_info().filename+"&typRizeni=info")
     else:
       command("leave", url=url_of('root', _external=True)+"interview?i=docassemble.VzoryPravnichPodani:stiznost.yml&typ=info&idSesn=" + user_info().session +"&idFile=" + user_info().filename+"&typRizeni=info")
 ---
