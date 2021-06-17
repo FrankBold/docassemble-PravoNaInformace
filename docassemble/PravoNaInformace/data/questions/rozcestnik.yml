@@ -9,11 +9,30 @@ metadata:
 ---
 default screen parts:
   post: |
+
+
     [Odeslat zpětnou vazbu](${ url_of('root') }interview?i=docassemble.PravoNaInformace%3Afeedback.yml){:target="_blank"}
+
+    % if user_has_privilege('admin'):
+
+    <label for="poznamka">Poznámka:</label>
+    <textarea class="form-control" id="poznamka" rows="3"></textarea>
+
+    ${ action_button_html("javascript:action_perform('odeslatPoznamku', {poznamka: $('#poznamka').val()}); return false", label="Odeslat poznámku") }
+    % endif
+
 ---
 modules:
   - .funkce
   - .progressivedisclosure
+---
+event: odeslatPoznamku
+code: |
+  import requests
+  i = 0
+  while i < 5:
+    webhook_data_poznamka = requests.post('https://hook.integromat.com/80uln75trc5yysll1nm7wytkhut95w4d', data=json.dumps({'data': all_variables(), 'poznamka': action_argument('poznamka')}), headers={'Content-Type': 'application/json'})
+    i+=1
 ---
 features:
   question help button: true
@@ -33,7 +52,7 @@ objects:
 scan for variables: False
 mandatory: True
 code: |
-  multi_user = True
+  uvod
   situace
   if final_situace["ID"] == 10000 or final_situace["ID"] == 30000 or final_situace["ID"] == 50000:
     final_arg = {}
@@ -42,6 +61,16 @@ code: |
     nevadi
   else:
     generator
+---
+question: |
+  Pomocník při neposkytnutí informace
+subquestion: |
+  Tento nástroj vás provede nejčastějšími situacemi neposkytnutí informací a jejich jejich řešením. Pro desítky častých nezákonných postupů máme na míru zpracovány vzory odvolání s konkrétní argumentací.
+
+  Nástroj neposkytuje komplexní právní službu. Pokud si nejste jisti, že výstupní informace je aplikovatelná na vaší situaci, či řešíte komplexní problém, doporučujeme využít služeb advokáta, či ve veřejném zájmu využít služeb poradny.
+
+  **Nástroj je momentálně v testovacím provozu** budeme tak rádi, pokud dám dáte vědět, pokud narazíte na jakékoli nedostatky, chyby či s podněty na zlepšení. Zpětnou vazbu můžete odeslat kdykoli prostřednictvím odkazu v dolní části obrazovky.
+continue button field: uvod
 ---
 question: |
   Jakou situaci řešíte?
