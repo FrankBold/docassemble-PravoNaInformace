@@ -21,7 +21,10 @@ def ziskejDuvody(parent):
 
   for x in y["Důvody"]:
     if x["parent"] == int(parent) and x["v"] == 1:
-      dict[x["ID"]] = x["title"]
+      if x["ust"]:
+        dict[x["ID"]] = x["title"]+"<small class='ust'>"+x["ust"]+"</small>"
+      else:
+        dict[x["ID"]] = x["title"]
   return OrderedDict(sorted(dict.items()))
 
 def ziskejArgumentyProti(parent):
@@ -68,3 +71,7 @@ def castClanku(nid, kapitola):
   page = requests.get(url_of(str(nid)+".md", _external=True))
   text = re.search(r'(#{1,3}) ('+kapitola+r')\?(.*?)\n\1 ', page.text, re.DOTALL)
   return text.group(3)
+
+def poznamkaWebhook(data, poznamka):
+  webhook_data_poznamka = requests.post('https://hook.integromat.com/d5jg95ywvujoqohj7mu5j6xfym6lc57p', data=json.dumps({'data': data, 'poznamka': poznamka}), headers={'Content-Type': 'application/json'})
+  return

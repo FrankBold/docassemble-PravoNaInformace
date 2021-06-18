@@ -13,12 +13,12 @@ default screen parts:
 
     [Odeslat zpětnou vazbu](${ url_of('root') }interview?i=docassemble.PravoNaInformace%3Afeedback.yml){:target="_blank"}
 
-    % if user_has_privilege('admin'):
+    % if user_has_privilege(['developer', 'advocate', 'admin']):
 
     <label for="poznamka">Poznámka:</label>
     <textarea class="form-control" id="poznamka" rows="3"></textarea>
 
-    ${ action_button_html("javascript:action_perform('odeslatPoznamku', {poznamka: $('#poznamka').val()}); return false", label="Odeslat poznámku") }
+    ${ action_button_html("javascript:action_perform('odeslatPoznamku', {poznamka: $('#poznamka').val()})", label="Odeslat poznámku") }
     % endif
 
 ---
@@ -26,17 +26,19 @@ modules:
   - .funkce
   - .progressivedisclosure
 ---
+mandatory: true
+code: |
+  pojistka = 0
+---
 event: odeslatPoznamku
 code: |
-  import requests
-  i = 0
-  while i < 5:
-    webhook_data_poznamka = requests.post('https://hook.integromat.com/80uln75trc5yysll1nm7wytkhut95w4d', data=json.dumps({'data': all_variables(), 'poznamka': action_argument('poznamka')}), headers={'Content-Type': 'application/json'})
-    i+=1
+  poznamkaWebhook(all_variables(), action_argument('poznamka'))
 ---
 features:
   question help button: true
-  css: progressivedisclosure.css
+  css: 
+    - progressivedisclosure.css
+    - custom.css
   question back button: True
   navigation back button: False
 #  javascript:
