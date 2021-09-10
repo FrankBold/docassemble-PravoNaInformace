@@ -6,13 +6,11 @@ metadata:
     - name: Michal Kuk
       organization: Frank Bold Society
   revision_date: 2020-11-05
+  footer: |
+    [<i class="far fa-comment-alt"></i> Odeslat zpětnou vazbu](/interview?i=docassemble.PravoNaInformace%3Afeedback.yml){:target="_blank"}
 ---
 default screen parts:
   post: |
-
-
-    [Odeslat zpětnou vazbu](${ url_of('root') }interview?i=docassemble.PravoNaInformace%3Afeedback.yml){:target="_blank"}
-
     % if user_has_privilege(['developer', 'advocate', 'admin']):
 
     <label for="poznamka">Poznámka:</label>
@@ -20,7 +18,6 @@ default screen parts:
 
     ${ action_button_html("javascript:action_perform('odeslatPoznamku', {poznamka: $('#poznamka').val()})", label="Odeslat poznámku") }
     % endif
-
 ---
 modules:
   - .funkce
@@ -36,7 +33,7 @@ code: |
 ---
 features:
   question help button: true
-  css: 
+  css:
     - progressivedisclosure.css
     - custom.css
   question back button: True
@@ -161,7 +158,7 @@ question: |
 subquestion: |
   ${ final_duvod['popis'] }
 
-  ### Odpovídá Vaší situaci, některá z níže uvedených?
+  ### <i class="fas fa-clipboard-list"></i> Odpovídá Vaší situaci, některá z níže uvedených?
   Připravili jsme argumentaci pro nejčastěji se opakující neoprávněné postupy. Pokud níže svoji situaci nenajdete, nevadí. Odůvodnění můžete doplnit dle svého.
 fields:
   - no label: argument
@@ -226,9 +223,11 @@ subquestion: |
 
   % if 'popis' in final_arg:
 
-  > ${ final_arg['titleMinus'] }
+  <div class="alert alert-light"" role="alert">
+  ${ final_arg['titleMinus'] }
+  </div>
 
-  ### Právní rozbor
+  ### <i class="fas fa-balance-scale"></i> Právní rozbor
 
   ${ final_arg['popis'] }
 
@@ -236,7 +235,7 @@ subquestion: |
   Pokud požadovaná informace spadá pod tento důvod, orgán vám pouze *může* informaci neposkytnout. Je tak do značné míry na jeho uvážení zda vám ji poskytne či nikoli. Může tak u úřadu argumentovat i tím, proč je důležité a ve veřejném zájmu informaci poskytnout.
   % endif
   % endif
-  ### Jak se bránit
+  ### <i class="fas fa-shield-alt"></i> Jak se bránit
   % if final_situace['podání'] == "odvolání":
   Můžete podat odvolání ve lhůtě 15 dní. Odvolání se podává k orgánu, který žádost odmítl. Buď vám sám plně vyhoví, nebo předá věc k rozhodnutí nadřízenému orgánu. Pokud jde o ústřední orgán, tak tomu kdo stojí v jeho čele.
   % else:
@@ -244,7 +243,7 @@ subquestion: |
   % endif
 continue button field: kSablone
 continue button label: |
-  <i class="fas fa-file-alt"></i> Vygenerovat ${ final_situace['podání'] }
+  <i class="fas fa-file-contract"></i> Vygenerovat ${ final_situace['podání'] }
 help:
   label: |
     <i class="fas fa-info"></i> Popis postupu
